@@ -1,0 +1,15 @@
+{
+    "name": "httd1/mailreplace",
+    "authors": [
+        {
+            "name": "J.M",
+            "homepage": "https://t.me/httd1",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MailReplace\\": "src/"
+        }
+    }
+}
