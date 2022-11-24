@@ -8,7 +8,7 @@ namespace MailReplace;
 class MailReplace {
 
     /**
-     * Making changes within a string
+     * Make changes within a string
      * 
      * @param string $mail
      * @param array $data
@@ -17,11 +17,33 @@ class MailReplace {
      */
     public static function replace (string $mail, array $data) :string
     {
+        
+        $mail_data = $mail;
 
-        if (is_file ($mail)){
-            $mail_data = self::openFile ($mail);
+        foreach ($data as $key => $value){
+            $search [] = $key;
+            $replace [] = $value;
+        }
+
+        return str_replace ($search, $replace, $mail_data);
+
+    }
+    
+    /**
+     * Make changes within a string
+     * 
+     * @param string $file
+     * @param array $data
+     * 
+     * @return string
+     */
+    public static function replaceFile (string $file, array $data) :string
+    {
+
+        if (is_file ($file)){
+            $mail_data = self::openFile ($file);
         }else {
-            $mail_data = $mail;
+            throw new \Exception ('File not exists!');
         }
 
         foreach ($data as $key => $value){
